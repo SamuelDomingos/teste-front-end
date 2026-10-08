@@ -7,7 +7,6 @@
   background: $color-white;
   box-shadow: $shadow-header;
 
-  /* ---------------------------------------------------------------- topbar */
   &__topbar {
     border-bottom: 1px solid $color-border;
   }
@@ -41,7 +40,6 @@
     }
   }
 
-  /* ------------------------------------------------------------------ main */
   &__main {
     border-bottom: 1px solid $color-border;
   }
@@ -128,14 +126,9 @@
     }
   }
 
-  /* ------------------------------------------------------------------- nav */
   &__nav {
     overflow-x: auto;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    @include custom-scrollbar(8px, 2px);
   }
 
   &__nav-list {
@@ -175,7 +168,6 @@
     }
   }
 
-  /* ------------------------------------------------------------- responsivo */
   @media (max-width: $bp-md) {
     &__main-inner {
       gap: 20px;
@@ -196,6 +188,7 @@
       height: auto;
       padding-block: 12px;
       gap: 12px;
+      justify-content: space-between;
     }
 
     &__search {
@@ -207,6 +200,33 @@
     &__nav-list {
       justify-content: flex-start;
       gap: 24px;
+    }
+  }
+
+  @media (max-width: $bp-xs) {
+    &__main-inner {
+      gap: 8px;
+    }
+
+    &__actions {
+      gap: 10px;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      a:first-child svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $bp-xxs) {
+    &__logo svg {
+      width: 116px;
+      height: 35px;
     }
   }
 }

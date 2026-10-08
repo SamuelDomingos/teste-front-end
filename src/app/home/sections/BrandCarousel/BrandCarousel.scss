@@ -18,15 +18,20 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 42px;
     margin-top: 32px;
+
+    li {
+      flex: 0 1 211px;
+      min-width: 96px;
+    }
   }
 
   &__item {
-    width: 211px;
-    height: 211px;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
     background: $color-white;
     box-shadow: $shadow-circle;
@@ -37,33 +42,40 @@
       transform 0.2s ease,
       box-shadow 0.2s ease;
 
+    .ui-logo svg {
+      width: 117px;
+      height: 34.76px;
+    }
+
     &:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      box-shadow: $shadow-circle-hover;
     }
   }
 
   @media (max-width: $bp-md) {
     &__list {
       gap: 24px;
-    }
 
-    &__item {
-      width: 160px;
-      height: 160px;
+      li {
+        flex-basis: 160px;
+        min-width: 96px;
+      }
     }
   }
 
   @media (max-width: $bp-sm) {
     &__list {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scrollbar-width: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 132px));
+      justify-content: center;
+      gap: 20px;
+      overflow-x: visible;
+      padding-bottom: 0;
 
-      &::-webkit-scrollbar {
-        display: none;
+      li {
+        flex: none;
+        min-width: 0;
       }
     }
   }

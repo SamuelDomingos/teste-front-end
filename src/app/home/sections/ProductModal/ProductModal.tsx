@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Icon, Modal } from '@/components/ui';
+import { Button, Icon, Modal } from '@/components/ui';
 import { formatCurrency } from '@/utils/format';
 import type { Product } from '@/types/product';
 import './ProductModal.scss';
@@ -28,7 +28,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
       {shown && (
         <div className="product-modal">
           <div className="product-modal__image">
-            <img src={shown.photo} alt={`Foto de ${shown.productName}`} />
+            <img src={shown.photo} alt={shown.productName} />
           </div>
 
           <div className="product-modal__info">
@@ -66,9 +66,9 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                 </button>
               </div>
 
-              <button type="button" className="product-modal__buy" onClick={onClose}>
+              <Button variant="yellow" className="product-modal__buy" onClick={onClose}>
                 Comprar
-              </button>
+              </Button>
             </div>
           </div>
         </div>

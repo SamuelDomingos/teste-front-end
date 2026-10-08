@@ -12,8 +12,6 @@ export default defineConfig(({ mode }) => {
     );
   }
 
-  // A API do teste não envia cabeçalhos CORS, então o JSON é acessado via
-  // proxy local em desenvolvimento/preview. Ver src/services/products.ts.
   const api = new URL(baseUrl);
   const apiPath = api.pathname.replace(/\/+$/, '') || '/';
 

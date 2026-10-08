@@ -49,7 +49,7 @@
     align-self: stretch;
     width: 1px;
     min-height: 198px;
-    background: rgba(40, 40, 40, 0.18);
+    background: $color-divider;
 
     @media (max-width: $bp-md) {
       display: none;

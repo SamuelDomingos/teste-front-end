@@ -37,10 +37,11 @@
     min-width: 0;
     display: flex;
     gap: 18px;
-    padding: 14px 0;
+    padding: 14px 12px;
     margin: -14px 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12px;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
@@ -49,7 +50,7 @@
   }
 
   &__item {
-    flex: 0 0 304px;
+    flex: 0 0 calc((100% - 54px) / 4);
     scroll-snap-align: start;
   }
 
@@ -72,36 +73,65 @@
   }
 
   &__skeleton {
-    flex: 0 0 304px;
+    flex: 0 0 calc((100% - 54px) / 4);
     height: 500px;
     border-radius: $radius-card;
-    background: linear-gradient(100deg, $color-bg-gray 40%, #fbfbfb 50%, $color-bg-gray 60%);
+    background: linear-gradient(100deg, $color-bg-gray 40%, $color-shimmer 50%, $color-bg-gray 60%);
     background-size: 200% 100%;
     animation: shelf-shimmer 1.2s ease-in-out infinite;
   }
 
+  @media (max-width: 1199px) {
+    &__item,
+    &__skeleton {
+      flex-basis: calc((100% - 36px) / 3);
+    }
+  }
+
+  @media (max-width: 991px) {
+    &__item,
+    &__skeleton {
+      flex-basis: calc((100% - 18px) / 2);
+    }
+  }
+
   @media (max-width: $bp-sm) {
     &__tags {
-      overflow-x: auto;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      flex-wrap: wrap;
+      gap: 8px;
 
       .ui-tag {
-        flex: 0 0 auto;
-        padding-inline: 20px;
+        flex: 1 1 140px;
+        padding-inline: 16px;
       }
+
+      .ui-tag + .ui-tag {
+        margin-left: 0;
+      }
+    }
+
+    &__carousel {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
     &__track {
-      padding-inline: 8px;
-      margin-inline: -8px;
+      order: -1;
+      flex-basis: 100%;
     }
+  }
 
-    &__arrow {
-      display: none;
+  @media (max-width: 600px) {
+    &__item,
+    &__skeleton {
+      flex-basis: 100%;
+    }
+  }
+
+  @media (max-width: $bp-xxs) {
+    &__tags .ui-tag {
+      flex-basis: calc(50% - 4px);
     }
   }
 }

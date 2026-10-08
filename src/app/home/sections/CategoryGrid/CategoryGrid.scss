@@ -5,13 +5,14 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 42px;
   }
 
   &__item {
-    width: 128px;
+    flex: 0 1 128px;
+    min-width: 76px;
   }
 
   &__link {
@@ -22,8 +23,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 128px;
-    height: 128px;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: $radius-card;
     background: $color-bg-card;
     box-shadow: $shadow-soft;
@@ -74,21 +75,50 @@
 
   @media (max-width: $bp-md) {
     &__list {
-      gap: 24px;
+      gap: clamp(10px, 2vw, 24px);
+    }
+
+    &__label {
+      font-size: clamp(11px, 1.5vw, 14px);
+      line-height: clamp(16px, 1.7vw, 21px);
     }
   }
 
   @media (max-width: $bp-sm) {
     &__list {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scrollbar-width: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 128px));
+      justify-content: center;
+      gap: 24px 16px;
+      overflow-x: visible;
+      padding-bottom: 0;
+    }
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    &__item {
+      flex: none;
+      min-width: 0;
+    }
+
+    &__label {
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+
+  @media (max-width: $bp-xs) {
+    &__list {
+      grid-template-columns: repeat(3, minmax(0, 128px));
+    }
+
+    &__label {
+      font-size: clamp(10.5px, 3vw, 13px);
+      line-height: clamp(15px, 3.4vw, 18px);
+    }
+  }
+
+  @media (max-width: $bp-xxs) {
+    &__list {
+      gap: 20px 8px;
     }
   }
 }

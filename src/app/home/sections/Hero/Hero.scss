@@ -8,15 +8,14 @@
   overflow: hidden;
   isolation: isolate;
 
-  /* Foto do banner (public/background.jpg); gradiente abaixo é o fallback */
   &__media {
     position: absolute;
     inset: 0;
     z-index: -2;
     background:
       url('/background-1600.jpg') center / cover no-repeat,
-      radial-gradient(circle at 78% 30%, rgba(247, 202, 17, 0.35), transparent 42%),
-      linear-gradient(120deg, #17122e 0%, #271c47 45%, #3019b2 100%);
+      radial-gradient(circle at 78% 30%, rgba($color-yellow, 0.35), transparent 42%),
+      linear-gradient(120deg, $color-violet-deep 0%, $color-violet 45%, $color-blue-dark 100%);
   }
 
   &__overlay {

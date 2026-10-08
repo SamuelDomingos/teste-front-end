@@ -1,9 +1,5 @@
 @use 'tokens' as *;
 
-/* ============================================================================
-   Reset
-   ========================================================================== */
-
 *,
 *::before,
 *::after {
@@ -75,10 +71,6 @@ p {
   margin: 0;
 }
 
-/* ============================================================================
-   Tokens globais (CSS custom properties) espelhando o Sass
-   ========================================================================== */
-
 :root {
   --color-white: #{$color-white};
   --color-black: #{$color-black};
@@ -99,12 +91,12 @@ p {
   --font-display: #{$font-display};
 }
 
-/* ============================================================================
-   Base
-   ========================================================================== */
-
 body {
   overflow-x: hidden;
+}
+
+* {
+  @include custom-scrollbar;
 }
 
 .container {
@@ -149,7 +141,6 @@ body {
   border: 0;
 }
 
-/* Título de seção com linhas laterais (Padrão das vitrines) */
 .section-title {
   display: flex;
   align-items: center;
@@ -175,5 +166,9 @@ body {
       font-size: 22px;
       line-height: 32px;
     }
+  }
+
+  @media (max-width: $bp-xs) {
+    gap: 12px;
   }
 }

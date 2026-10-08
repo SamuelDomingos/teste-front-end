@@ -88,7 +88,7 @@
     height: 42px;
     text-transform: uppercase;
     font-weight: $weight-semibold;
-    color: #161615;
+    color: $color-black-soft;
 
     @media (max-width: $bp-sm) {
       flex: 1 1 100%;

@@ -16,7 +16,7 @@ export function ProductCard({ product, onSelect }: ProductCardProps) {
       <div className="product-card__image">
         <img
           src={product.photo}
-          alt={`Foto de ${product.productName}`}
+          alt={product.productName}
           width={205}
           height={205}
           loading="lazy"

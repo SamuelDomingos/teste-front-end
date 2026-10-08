@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(0, 0, 0, 0.55);
+  background: $color-overlay;
   animation: ui-modal-fade 0.2s ease;
 
   &__dialog {
@@ -43,7 +43,7 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: #707070;
+    color: $color-gray-8;
     transition: color 0.2s ease;
 
     &:hover {
