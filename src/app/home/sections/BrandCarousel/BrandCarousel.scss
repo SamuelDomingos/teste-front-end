@@ -1,0 +1,70 @@
+@use '@/styles/tokens' as *;
+
+.brands {
+  padding-block: 40px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: $weight-bold;
+    line-height: 45px;
+    text-align: center;
+    color: $color-blue;
+
+    @media (max-width: $bp-sm) {
+      font-size: 22px;
+      line-height: 32px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 42px;
+    margin-top: 32px;
+  }
+
+  &__item {
+    width: 211px;
+    height: 211px;
+    border-radius: 50%;
+    background: $color-white;
+    box-shadow: $shadow-circle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  @media (max-width: $bp-md) {
+    &__list {
+      gap: 24px;
+    }
+
+    &__item {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    &__list {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

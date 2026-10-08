@@ -1,0 +1,106 @@
+@use '@/styles/tokens' as *;
+
+.banners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  padding-block: 40px;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 350px;
+  padding: 44px;
+  overflow: hidden;
+  border-radius: $radius-banner;
+  isolation: isolate;
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover &__media {
+    transform: scale(1.04);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 85.04%);
+    opacity: 0.8;
+    border-radius: 0 0 $radius-banner $radius-banner;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: $weight-bold;
+    line-height: 60px;
+    color: $color-white;
+
+    @media (max-width: $bp-sm) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    max-width: 240px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: $weight-regular;
+    line-height: 24px;
+    color: $color-white;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    margin-top: 32px;
+    height: 48px;
+    padding-inline: 26px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Foto dos parceiros (public/parceiros.jpg) em recortes distintos;
+     o gradiente de cada variante é o fallback caso a foto falhe */
+  &--a &__media {
+    background:
+      url('/parceiros-1600.jpg') 15% center / cover no-repeat,
+      linear-gradient(135deg, #3442b5 0%, #271c47 60%, #17122e 100%);
+  }
+
+  &--b &__media {
+    background:
+      url('/parceiros-1600.jpg') 45% center / cover no-repeat,
+      linear-gradient(135deg, #271c47 0%, #4e3a7a 55%, #f7ca11 160%);
+  }
+
+  &--c &__media {
+    background:
+      url('/parceiros-1600.jpg') 75% center / cover no-repeat,
+      linear-gradient(135deg, #17122e 0%, #3019b2 70%, #3442b5 100%);
+  }
+
+  &--d &__media {
+    background:
+      url('/parceiros-1600.jpg') center bottom / cover no-repeat,
+      linear-gradient(135deg, #4e3a7a 0%, #271c47 55%, #0f0b1d 100%);
+  }
+
+  @media (max-width: $bp-sm) {
+    padding: 28px;
+    min-height: 280px;
+  }
+}

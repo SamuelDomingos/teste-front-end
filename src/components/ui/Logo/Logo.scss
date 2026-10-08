@@ -1,0 +1,22 @@
+@use '@/styles/tokens' as *;
+
+.ui-logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+
+  svg {
+    display: block;
+    width: 139px;
+    height: 42px;
+  }
+
+  &--sm svg {
+    width: auto;
+    height: 24px;
+  }
+
+  &--light path[fill='#271C47'] {
+    fill: $color-white;
+  }
+}

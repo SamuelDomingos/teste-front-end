@@ -1,0 +1,68 @@
+@use '@/styles/tokens' as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 390px;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* Foto do banner (public/background.jpg); gradiente abaixo é o fallback */
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      url('/background-1600.jpg') center / cover no-repeat,
+      radial-gradient(circle at 78% 30%, rgba(247, 202, 17, 0.35), transparent 42%),
+      linear-gradient(120deg, #17122e 0%, #271c47 45%, #3019b2 100%);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.65) 35%,
+      rgba(0, 0, 0, 0) 75%
+    );
+  }
+
+  &__content {
+    padding-block: 48px;
+  }
+
+  &__title {
+    max-width: 830px;
+    font-size: 48px;
+    font-weight: $weight-semibold;
+    line-height: 50px;
+    color: $color-white;
+
+    @media (max-width: $bp-sm) {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
+
+  &__highlight {
+    display: block;
+    margin-top: 16px;
+    font-size: 32px;
+    font-weight: $weight-bold;
+    line-height: 48px;
+    color: $color-yellow;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__cta {
+    margin-top: 41px;
+  }
+}

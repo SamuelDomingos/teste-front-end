@@ -1,0 +1,119 @@
+@use '@/styles/tokens' as *;
+
+.footer {
+  background: $color-bg-gray;
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 90px;
+    padding-block: 42px;
+
+    @media (max-width: $bp-md) {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+  }
+
+  &__brand {
+    width: 354px;
+    max-width: 100%;
+
+    p {
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: $weight-light;
+      line-height: 21px;
+      color: $color-black;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 27px;
+
+    a {
+      display: inline-flex;
+      color: $color-gray-7;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__divider {
+    align-self: stretch;
+    width: 1px;
+    min-height: 198px;
+    background: rgba(40, 40, 40, 0.18);
+
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    gap: 100px;
+    margin-left: auto;
+
+    @media (max-width: $bp-md) {
+      margin-left: 0;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    @media (max-width: $bp-xs) {
+      gap: 24px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__heading {
+    font-size: 16px;
+    font-weight: $weight-bold;
+    line-height: 16px;
+    color: $color-footer-text;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__link {
+    font-family: $font-links;
+    font-size: 14px;
+    font-weight: $weight-regular;
+    line-height: 16px;
+    color: $color-footer-text;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__copyright {
+    background: $color-white;
+    padding-block: 13px;
+    text-align: center;
+
+    p {
+      font-size: 13px;
+      font-weight: $weight-light;
+      line-height: 20px;
+      color: $color-black;
+    }
+  }
+}

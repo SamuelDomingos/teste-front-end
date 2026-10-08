@@ -1,0 +1,93 @@
+@use '@/styles/tokens' as *;
+
+.ui-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.55);
+  animation: ui-modal-fade 0.2s ease;
+
+  &__dialog {
+    position: relative;
+    width: 769px;
+    max-width: 100%;
+    min-height: 299.26px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: $color-white;
+    border-radius: 6px;
+    box-shadow: $shadow-card;
+    animation: ui-modal-rise 0.25s ease;
+  }
+
+  &--closing {
+    pointer-events: none;
+    animation: ui-modal-fade-out 0.2s ease forwards;
+
+    .ui-modal__dialog {
+      animation: ui-modal-sink 0.25s ease forwards;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 15px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #707070;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-violet;
+    }
+  }
+}
+
+@keyframes ui-modal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ui-modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ui-modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ui-modal-sink {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}

@@ -1,0 +1,42 @@
+@use '@/styles/tokens' as *;
+
+.ui-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 40px;
+  padding: 12px 8px;
+  background: $color-white;
+  border: 1px solid $color-gray-5;
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: $weight-regular;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: $color-gray-4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  & + .ui-tag {
+    margin-left: -1px;
+  }
+
+  &:hover {
+    color: $color-blue;
+    border-color: $color-blue;
+    z-index: 1;
+  }
+
+  &--active {
+    color: $color-blue;
+    font-weight: $weight-bold;
+    border-color: $color-blue;
+    z-index: 2;
+  }
+}

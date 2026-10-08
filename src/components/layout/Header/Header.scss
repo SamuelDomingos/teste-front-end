@@ -1,0 +1,212 @@
+@use '@/styles/tokens' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: $color-white;
+  box-shadow: $shadow-header;
+
+  /* ---------------------------------------------------------------- topbar */
+  &__topbar {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 8vw, 119px);
+    height: 32px;
+  }
+
+  &__benefit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: $weight-medium;
+    line-height: 18px;
+    color: $color-gray-1;
+    white-space: nowrap;
+
+    strong {
+      font-weight: $weight-semibold;
+      color: $color-blue-dark;
+    }
+
+    svg {
+      flex: none;
+      color: $color-gray-1;
+    }
+  }
+
+  /* ------------------------------------------------------------------ main */
+  &__main {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__main-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 72px;
+  }
+
+  &__logo {
+    flex: none;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 12px;
+    max-width: 710px;
+    height: 48px;
+    margin-inline: auto;
+    padding-left: 20px;
+    background: $color-bg-soft;
+    border-radius: 10px;
+    transition: box-shadow 0.2s ease;
+
+    &:focus-within {
+      box-shadow: 0 0 0 2px rgba($color-blue, 0.35);
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      font-weight: $weight-medium;
+      color: $color-black;
+
+      &::placeholder {
+        color: $color-gray-1;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      margin-right: 14px;
+      color: $color-gray-1;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: none;
+
+    a,
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-gray-1;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------- nav */
+  &__nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(20px, 6.3vw, 91px);
+    height: 40px;
+    min-width: max-content;
+    margin-inline: auto;
+    padding-inline: 24px;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: $weight-semibold;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: $color-gray-1;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-blue-dark;
+    }
+
+    &--active {
+      color: $color-blue-dark;
+    }
+  }
+
+  /* ------------------------------------------------------------- responsivo */
+  @media (max-width: $bp-md) {
+    &__main-inner {
+      gap: 20px;
+    }
+
+    &__actions {
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    &__topbar {
+      display: none;
+    }
+
+    &__main-inner {
+      flex-wrap: wrap;
+      height: auto;
+      padding-block: 12px;
+      gap: 12px;
+    }
+
+    &__search {
+      order: 3;
+      flex-basis: 100%;
+      max-width: none;
+    }
+
+    &__nav-list {
+      justify-content: flex-start;
+      gap: 24px;
+    }
+  }
+}

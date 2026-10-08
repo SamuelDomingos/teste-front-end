@@ -1,0 +1,74 @@
+// ============================================================================
+// Design tokens extraídos do layout (Figma -> Home.txt)
+// ============================================================================
+
+// Cores
+$color-white: #ffffff;
+$color-black: #3f3f40; // Preto
+$color-blue: #3442b5; // Azul (títulos, botões, preços)
+$color-blue-dark: #3019b2; // Azul escuro (item ativo do menu)
+$color-blue-alt: #3442b5;
+$color-violet: #271c47; // Roxo / violeta institucional
+$color-yellow: #f7ca11; // Amarelo (CTAs)
+$color-gray-1: #9f9f9f; // Cinza médio (textos de apoio)
+$color-gray-2: #808080; // Preço antigo
+$color-gray-3: #4e4e4e; // Rótulos de categoria
+$color-gray-4: #3b3b3b; // Tags inativas
+$color-gray-5: #bdbdbd; // Bordas de tags
+$color-gray-6: #676767; // Placeholder de input
+$color-gray-7: #4a4a4a; // Ícones sociais
+$color-line: #dedede; // Linhas do título de vitrine
+$color-border: #f0f0f0; // Linhas do header
+$color-border-input: #e7e7e7;
+$color-bg-soft: #f7f5f2;
+$color-bg-gray: #f4f4f4;
+$color-bg-card: #f4f4f4;
+$color-footer-text: rgba(34, 34, 34, 0.71);
+
+// Tipografia
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$font-primary: 'Poppins', system-ui, -apple-system, sans-serif;
+$font-display: 'Outfit', $font-primary;
+$font-links: 'Work Sans', $font-primary;
+
+// Sombras
+$shadow-header: 0 8px 16px rgba(57, 48, 19, 0.12);
+$shadow-card: 0 3px 19px rgba(0, 0, 0, 0.22);
+$shadow-soft: 0 4px 11px rgba(0, 0, 0, 0.13);
+$shadow-category: 0 2px 9px rgba(0, 0, 0, 0.22);
+$shadow-circle: 0 7px 20px rgba(0, 0, 0, 0.13);
+$shadow-arrow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+// Layout
+$container-width: 1280px;
+$container-wide: 1364px;
+$radius-card: 10px;
+$radius-button: 4px;
+$radius-banner: 20px;
+$radius-input: 8px;
+
+// Breakpoints
+$bp-lg: 1440px;
+$bp-md: 1024px;
+$bp-sm: 768px;
+$bp-xs: 480px;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-width + 48px;
+  margin-inline: auto;
+  padding-inline: 24px;
+
+  @media (max-width: $bp-sm) {
+    padding-inline: 16px;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-blue;
+  outline-offset: 2px;
+}

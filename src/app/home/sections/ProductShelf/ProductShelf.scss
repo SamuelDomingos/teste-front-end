@@ -1,0 +1,116 @@
+@use '@/styles/tokens' as *;
+
+.shelf {
+  padding-block: 24px;
+
+  &__see-all {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: $weight-bold;
+    line-height: 22px;
+    color: $color-black;
+
+    a {
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  &__track {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: 18px;
+    padding: 14px 0;
+    margin: -14px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    flex: 0 0 304px;
+    scroll-snap-align: start;
+  }
+
+  &__arrow {
+    flex: none;
+  }
+
+  &__status {
+    display: flex;
+    flex: 1 0 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 300px;
+    text-align: center;
+    color: $color-gray-1;
+    font-size: 15px;
+  }
+
+  &__skeleton {
+    flex: 0 0 304px;
+    height: 500px;
+    border-radius: $radius-card;
+    background: linear-gradient(100deg, $color-bg-gray 40%, #fbfbfb 50%, $color-bg-gray 60%);
+    background-size: 200% 100%;
+    animation: shelf-shimmer 1.2s ease-in-out infinite;
+  }
+
+  @media (max-width: $bp-sm) {
+    &__tags {
+      overflow-x: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .ui-tag {
+        flex: 0 0 auto;
+        padding-inline: 20px;
+      }
+    }
+
+    &__track {
+      padding-inline: 8px;
+      margin-inline: -8px;
+    }
+
+    &__arrow {
+      display: none;
+    }
+  }
+}
+
+@keyframes shelf-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

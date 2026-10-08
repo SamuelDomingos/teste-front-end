@@ -4,6 +4,27 @@
 
 Segue abaixo as instruções para a execução do teste.
 
+## Como rodar o projeto
+
+Pré-requisitos: Node.js 18+.
+
+```bash
+# 1. configurar a base da API (arquivo não versionado)
+cp .env.example .env
+
+# 2. dependências
+npm install
+
+# 3. desenvolvimento (http://localhost:5173)
+npm run dev
+
+# 4. build de produção + preview (http://localhost:4173)
+npm run build
+npm run preview
+```
+
+A conexão com o JSON de produtos fica em `.env` (`VITE_API_BASE_URL`); `.env.example` é versionado com o valor padrão.
+
 ## Instruções
 - Faça um fork desse projeto para a sua conta pessoal do GitHub.
 - Desenvolva a página conforme as **Especificações Técnicas** 

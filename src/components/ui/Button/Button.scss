@@ -1,0 +1,65 @@
+@use '@/styles/tokens' as *;
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 49px;
+  border: none;
+  border-radius: 5px;
+  font-family: $font-primary;
+  font-size: 16px;
+  font-weight: $weight-semibold;
+  line-height: 24px;
+  text-align: center;
+  transition:
+    filter 0.2s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--yellow {
+    background: $color-yellow;
+    color: $color-violet;
+  }
+
+  &--blue {
+    background: $color-blue;
+    color: $color-white;
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: $radius-button;
+  }
+
+  &--outline {
+    background: transparent;
+    color: $color-black;
+    border: 1px solid $color-gray-5;
+  }
+
+  &--sm {
+    height: 42px;
+    padding: 0 40px;
+    border-radius: $radius-input;
+    font-size: 14px;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}

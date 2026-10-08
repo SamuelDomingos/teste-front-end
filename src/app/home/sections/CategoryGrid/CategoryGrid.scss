@@ -1,0 +1,94 @@
+@use '@/styles/tokens' as *;
+
+.categories {
+  padding-block: 39px 66px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 42px;
+  }
+
+  &__item {
+    width: 128px;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 128px;
+    height: 128px;
+    border-radius: $radius-card;
+    background: $color-bg-card;
+    box-shadow: $shadow-soft;
+    color: $color-gray-3;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease;
+  }
+
+  &__icon {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+  }
+
+  &__label {
+    display: block;
+    margin-top: 22px;
+    font-size: 14px;
+    font-weight: $weight-medium;
+    line-height: 21px;
+    text-align: center;
+    color: $color-gray-3;
+    transition: color 0.2s ease;
+  }
+
+  &__link:hover &__card {
+    transform: translateY(-4px);
+    box-shadow: $shadow-category;
+    color: $color-blue;
+  }
+
+  &__link:hover &__label {
+    color: $color-blue;
+  }
+
+  &__item--active &__card {
+    background: $color-white;
+    box-shadow: $shadow-category;
+    color: $color-blue-dark;
+  }
+
+  &__item--active &__label {
+    color: $color-blue-dark;
+    font-weight: $weight-semibold;
+  }
+
+  @media (max-width: $bp-md) {
+    &__list {
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    &__list {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
